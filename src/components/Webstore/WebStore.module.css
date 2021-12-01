@@ -1,0 +1,8 @@
+.store {
+
+}
+
+.store ul {
+  display: flex;
+  list-style: none;
+}
