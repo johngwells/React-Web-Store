@@ -28,6 +28,7 @@ function WebStore() {
       }
 
       setStoreData(loadedStore);
+      console.log(storeData)
     };
     fetchStore();
   }, []);

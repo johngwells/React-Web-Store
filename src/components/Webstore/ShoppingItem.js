@@ -4,11 +4,13 @@ import classes from "./ShoppingItem.module.css";
 
 function ShoppingItem(props) {
   return (
-    <li key={props.id} className={classes.container}>
+    <div className={classes.container}>
+    <li key={props.id}>
       <Card>
         <img alt="product" src={props.image} />
       </Card>
     </li>
+    </div>
   );
 }
 

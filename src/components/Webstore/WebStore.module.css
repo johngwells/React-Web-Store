@@ -1,9 +1,12 @@
 .store {
-  text-align: center;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 60%;
+  margin: 0 auto;
 }
 
 .store ul {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
   list-style: none;
 }
