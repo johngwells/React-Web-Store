@@ -1,9 +1,10 @@
 .container  {
-  display: flex;
-  justify-content: space-around;
+  /* display: flex;
+  flex-direction: column; */
 }
 
 img {
   width: 50%;
   height: auto;
+  padding: 10px;
 }

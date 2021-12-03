@@ -1,8 +1,9 @@
 .store {
-
+  text-align: center;
 }
 
 .store ul {
   display: flex;
+  align-items: center;
   list-style: none;
 }
