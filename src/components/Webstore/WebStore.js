@@ -28,14 +28,15 @@ function WebStore() {
       }
 
       setStoreData(loadedStore);
-      console.log(storeData)
     };
     fetchStore();
   }, []);
 
   const shoppingList = storeData.map((item) => (
-    <ShoppingItem key={item.id} image={item.image} />
+    <ShoppingItem key={item.id} image={item.image} title={item.title} description={item.description} />
   ));
+
+  console.log(storeData)
 
   return (
     <section className={classes.store}>

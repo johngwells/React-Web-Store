@@ -1,11 +1,17 @@
-import WebStore from './components/Webstore/WebStore';
-import './App.css';
+import WebStore from "./components/Webstore/WebStore";
+import Header from "./components/UI/Header";
+import CartProvider from "./store/CartProvider";
+
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <WebStore />
-    </div>
+    <CartProvider>
+      <div className="App">
+        <Header />
+        <WebStore />
+      </div>
+    </CartProvider>
   );
 }
 
