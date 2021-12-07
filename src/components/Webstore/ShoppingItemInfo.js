@@ -8,7 +8,7 @@ function ShoppingItemInfo(props) {
 
   return (
     <div className={classes.container}>
-      <h2>{props.title}</h2>
+      <h2 className={classes.title}>{props.title}</h2>
       <div className={classes.button}>
         <button>more info</button>
         <button onClick={cartCtx.addItem}>Add to cart</button>

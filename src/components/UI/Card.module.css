@@ -2,8 +2,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 250px;
-  height: 300px;
+  width: 25rem;
+  height: 30rem;
   background-color: rgba(0, 0, 0, 0.04);
   /* border: 2px solid gray;
   border-radius: 5px; */
@@ -11,7 +11,6 @@
 }
 
 .container:hover {
-
   background-color: rgba(0, 0, 0, 0.10);
 }
 

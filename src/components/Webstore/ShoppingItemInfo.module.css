@@ -8,6 +8,11 @@
   margin-top: .5rem;
 }
 
+.title {
+  font-size: 2rem;
+}
+
 .price {
   margin-left: .5rem;
+  font-size: 1.4rem;
 }
