@@ -4,7 +4,6 @@ import classes from "./ShoppingItem.module.css";
 import ShoppingItemInfo from "./ShoppingItemInfo";
 
 function ShoppingItem(props) {
-  console.log(props)
   return (
     <div className={classes.container}>
       <li key={props.id}>
@@ -12,7 +11,7 @@ function ShoppingItem(props) {
           <img alt="product" src={props.image} />
         </Card>
       </li>
-      <ShoppingItemInfo title={props.title} description={props.description}/>
+      <ShoppingItemInfo title={props.title} description={props.description} price={props.price} />
     </div>
   );
 }

@@ -6,13 +6,14 @@ import classes from './Header.module.css';
 function Header() {
   const cartCtx = useContext(CartContext);
 
-  const { cart } = cartCtx
+  const { cartCount } = cartCtx
 
   return <div className={classes.header}>
     <div className={classes['header__cart']}>
       <span>Cart:</span>
-{    console.log('Header', cartCtx)}
-      <span>{cart}</span>
+      {console.log('Header', cartCtx)}
+      <span>{cartCount}</span>
+      <button className={classes.button} onClick={cartCtx.removeItem}>Remove from cart</button>
     </div>
   </div>
 }

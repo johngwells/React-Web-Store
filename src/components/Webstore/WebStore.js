@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 
 import ShoppingItem from "./ShoppingItem";
 import classes from "./WebStore.module.css";
+import CartContext from "../../store/cart-context";
 
 function WebStore() {
   const [storeData, setStoreData] = useState([]);
+  const cartCtx = useContext(CartContext);
 
   useEffect(() => {
     const fetchStore = async () => {
@@ -27,16 +29,17 @@ function WebStore() {
         });
       }
 
-      setStoreData(loadedStore);
+      setStoreData(loadedStore)
+      console.log(storeData)
+      // cartCtx.addData(loadedStore);
     };
     fetchStore();
   }, []);
 
+  // console.log(cartCtx)
   const shoppingList = storeData.map((item) => (
-    <ShoppingItem key={item.id} image={item.image} title={item.title} description={item.description} />
+    <ShoppingItem key={item.id} image={item.image} title={item.title} description={item.description} price={item.price} />
   ));
-
-  console.log(storeData)
 
   return (
     <section className={classes.store}>

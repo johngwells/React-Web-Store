@@ -7,9 +7,14 @@
   background-color: rgba(0, 0, 0, 0.04);
   /* border: 2px solid gray;
   border-radius: 5px; */
+  transition: background-color .5s ease-out;
 }
 
 .container:hover {
-  transition: background-color .5s ease-out;
+
   background-color: rgba(0, 0, 0, 0.10);
+}
+
+.container:hover::after {
+  transition: background-color .5s ease-out;
 }

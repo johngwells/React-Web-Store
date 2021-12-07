@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: .5rem;
+}
+
+.button {
+  margin-top: .5rem;
+}
+
+.price {
+  margin-left: .5rem;
+}
