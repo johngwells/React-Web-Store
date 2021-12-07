@@ -3,7 +3,7 @@ import { useState } from "react";
 import CartContext from "./cart-context";
 
 const CartProvider = (props) => {
-  const [cartState, setCartState] = [];
+  const [cartState, setCartState] = useState([]);
   const [cartCount, setCartCount] = useState(0);
 
   const addItemToCartHandler = () => {
@@ -18,7 +18,11 @@ const CartProvider = (props) => {
   };
 
   const addDataToCartHandler = (item) => {
-    console.log(item);
+    setCartState({
+      id: item.id,
+      price: item.price
+    })
+    setCartCount(cartCount + 1)
   };
 
   const cartContext = {

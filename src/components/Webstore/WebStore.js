@@ -19,7 +19,7 @@ function WebStore() {
       let loadedStore = [];
       for (const key in responseData) {
         loadedStore.push({
-          id: key,
+          id: responseData[key].id,
           category: responseData[key].category,
           title: responseData[key].title,
           description: responseData[key].description,
@@ -28,9 +28,8 @@ function WebStore() {
           rating: responseData[key].rating
         });
       }
-
+      console.log(loadedStore)
       setStoreData(loadedStore)
-      console.log(storeData)
       // cartCtx.addData(loadedStore);
     };
     fetchStore();
@@ -38,7 +37,7 @@ function WebStore() {
 
   // console.log(cartCtx)
   const shoppingList = storeData.map((item) => (
-    <ShoppingItem key={item.id} image={item.image} title={item.title} description={item.description} price={item.price} />
+    <ShoppingItem key={item.id} id={item.id} image={item.image} title={item.title} description={item.description} price={item.price} />
   ));
 
   return (
