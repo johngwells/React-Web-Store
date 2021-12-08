@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import CartContext from "./cart-context";
 
@@ -6,31 +6,34 @@ const CartProvider = (props) => {
   const [cartState, setCartState] = useState([]);
   const [cartCount, setCartCount] = useState(0);
 
-  const addItemToCartHandler = () => {
-    setCartCount(cartCount + 1);
-  };
 
-  const removeItemToCartHandler = () => {
-    if (cartCount === 0) {
-      return;
-    }
-    setCartCount(cartCount - 1);
-  };
-
-  const addDataToCartHandler = (item) => {
+  const addItemToCartHandler = (item) => {
     setCartState({
       id: item.id,
-      price: item.price
+      price: item.price,
+      count: cartCount + 1
     })
     setCartCount(cartCount + 1)
   };
 
+  const removeItemToCartHandler = (item) => {
+    if (cartCount === 0) {
+      return;
+    }
+    setCartCount(cartCount - 1);
+    
+    setCartState(prev => ({
+      id: item.id,
+      price: item.price,
+      count: prev.count === 0 ? 0 : prev.count -1
+    }))
+  };
+  
   const cartContext = {
     cart: cartState,
     cartCount: cartCount,
     addItem: addItemToCartHandler,
-    removeItem: removeItemToCartHandler,
-    addData: addDataToCartHandler
+    removeItem: removeItemToCartHandler
   };
 
   return (

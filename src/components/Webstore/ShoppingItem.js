@@ -9,7 +9,7 @@ function ShoppingItem(props) {
   const cartCtx = useContext(CartContext)
   
   const handleAddedToCart = (id) => {
-    cartCtx.addData(id)
+    cartCtx.addItem(id)
   }
 
   return (
