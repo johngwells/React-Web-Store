@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useState } from "react";
 
 import CartContext from "./cart-context";
 
@@ -17,16 +17,12 @@ const CartProvider = (props) => {
   };
 
   const removeItemToCartHandler = (item) => {
-    if (cartCount === 0) {
-      return;
-    }
-    setCartCount(cartCount - 1);
-    
     setCartState(prev => ({
       id: item.id,
       price: item.price,
       count: prev.count === 0 ? 0 : prev.count -1
     }))
+    setCartCount(cartCount === 0 ? 0 : cartCount - 1);
   };
   
   const cartContext = {
