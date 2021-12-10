@@ -7,7 +7,7 @@ function Header() {
   const cartCtx = useContext(CartContext);
   console.log(cartCtx)
 
-  const { cartCount} = cartCtx;
+  const { cart } = cartCtx;
 
   const handleRemoveFromCart = (item) => {
     cartCtx.removeItem(item);
@@ -16,8 +16,8 @@ function Header() {
   return <div className={classes.header}>
     <div className={classes['header__cart']}>
       <span>Cart:</span>
-      {console.log('Header', cartCtx)}
-      <span>{cartCount}</span>
+      {/* {console.log('Header', cartCtx)} */}
+      <span>{cart.count}</span>
       <button className={classes.button} onClick={() => handleRemoveFromCart(cartCtx.cart)}>Remove from cart</button>
     </div>
   </div>
