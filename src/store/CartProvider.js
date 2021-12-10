@@ -3,24 +3,30 @@ import { useReducer } from "react";
 import CartContext from "./cart-context";
 
 const initialState = {
-  id: null,
-  price: 0,
-  count: 0,
+  cartItems: [],
 }
 
 function reducer(state, action) {
   if (action.type === 'ADD') {
+    console.log(state)
+
     return {
       ...state,
-      id: action.payload.id,
-      price: action.payload.price,
-      count: state.count + 1
+      cartItems: [...state.cartItems, {...action.payload}],
     }
   }
   if (action.type === 'REMOVE') {
     return {
       ...state,
-      count: state.count < 0 ? 0 : state.count--
+      cartItems: [...state.cartItems.filter(item => item.id !== action.payload.id)]
+      // count: state.count < 0 ? 0 : state.count--
+    }
+  }
+
+  if (action.type === 'RESET') {
+    return {
+      ...state,
+      cartItems: []
     }
   }
 
@@ -37,11 +43,17 @@ const CartProvider = (props) => {
   const removeItemToCartHandler = (item) => {
     dispatch({type: 'REMOVE', payload: item});
   }
+
+  const resetCartHandler = (item) => {
+    dispatch({type: 'RESET', payload: item});
+  }
+  
   
   const cartContext = {
     cart: state,
     addItem: addItemToCartHandler,
-    removeItem: removeItemToCartHandler
+    removeItem: removeItemToCartHandler,
+    reset: resetCartHandler
   };
 
   return (

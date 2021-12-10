@@ -12,6 +12,10 @@ function ShoppingItem(props) {
     cartCtx.addItem(id)
   }
 
+  const handleRemoveFromCart = (id) => {
+    cartCtx.removeItem(id);
+  }
+
   return (
     <div className={classes.container}>
       <li key={props.id}>
@@ -19,7 +23,7 @@ function ShoppingItem(props) {
           <img alt="product" src={props.image} />
         </Card>
       </li>
-      <ShoppingItemInfo id={props.id} title={props.title} description={props.description} price={props.price} addedToCart={handleAddedToCart}/>
+      <ShoppingItemInfo id={props.id} title={props.title} description={props.description} price={props.price} addedToCart={handleAddedToCart} removeFromCart={handleRemoveFromCart}/>
     </div>
   );
 }

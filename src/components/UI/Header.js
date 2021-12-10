@@ -9,16 +9,15 @@ function Header() {
 
   const { cart } = cartCtx;
 
-  const handleRemoveFromCart = (item) => {
-    cartCtx.removeItem(item);
+  const handleResetCart = (item) => {
+    cartCtx.reset(item);
   }
 
   return <div className={classes.header}>
     <div className={classes['header__cart']}>
       <span>Cart:</span>
-      {/* {console.log('Header', cartCtx)} */}
-      <span>{cart.count}</span>
-      <button className={classes.button} onClick={() => handleRemoveFromCart(cartCtx.cart)}>Remove from cart</button>
+      <span>{cart.cartItems.length}</span>
+      <button className={classes.button} onClick={() => handleResetCart(cartCtx.cart)}>Delete Cart</button>
     </div>
   </div>
 }
