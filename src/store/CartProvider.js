@@ -8,17 +8,50 @@ const initialState = {
 
 function reducer(state, action) {
   if (action.type === "ADD") {
-    console.log(state);
+    // see if the item exist at the index
+    const existingCartItemIndex = state.cartItems.findIndex(
+      (item) => item.id === action.payload.id
+    );
+
+    // after finding the index, exisitngCartItem will be that existing item index
+    const existingCartItem = state.cartItems[existingCartItemIndex];
+
+    let updatedItems;
+
+    if (existingCartItem) {
+      const updatedItem = {
+        ...existingCartItem,
+        quantity: existingCartItem.quantity++
+      };
+
+      // copy exisiting items in cart to a new array
+      updatedItems = [...state.cartItems];
+      // take the updatedItems Index & overwrite to the new updatedItem
+      updatedItems[existingCartItemIndex] = updatedItem;
+      console.log(updatedItems);
+    } else {
+      console.log("first Add to cart fired");
+      updatedItems = [...state.cartItems, { ...action.payload, quantity: 1 }];
+    }
+
+    // (Later) Add total amount if multiple quanity
 
     return {
-      ...state,
-      cartItems: [...state.cartItems, { ...action.payload, quantity: 1}]
+      cartItems: updatedItems
     };
+
+    // return {
+    //   ...state,
+    //   cartItems: [...state.cartItems, { ...action.payload, quantity: 1}]
+    // };
   }
+
   if (action.type === "REMOVE") {
     return {
       ...state,
-      cartItems: [...state.cartItems.filter(item => item.id !== action.payload.id)]
+      cartItems: [
+        ...state.cartItems.filter((item) => item.id !== action.payload.id)
+      ]
     };
   }
 
